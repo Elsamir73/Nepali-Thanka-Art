@@ -1,16 +1,13 @@
 <?php
 
-@include 'config.php';
+@include 'includes/config.php';
 
 session_start();
 
 if(isset($_POST['submit'])){
 
-   $name = mysqli_real_escape_string($conn, $_POST['name']);
    $email = mysqli_real_escape_string($conn, $_POST['email']);
    $pass = md5($_POST['password']);
-   $cpass = md5($_POST['cpassword']);
-   $user_type = $_POST['user_type'];
 
    $select = " SELECT * FROM user_form WHERE email = '$email' && password = '$pass' ";
 
@@ -23,7 +20,7 @@ if(isset($_POST['submit'])){
       if($row['user_type'] == 'admin'){
 
          $_SESSION['admin_name'] = $row['name'];
-         header('location:admin_page.php');
+         header('location:admin/home.php');
 
       }elseif($row['user_type'] == 'user'){
 
@@ -48,7 +45,7 @@ if(isset($_POST['submit'])){
    <title>login form</title>
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="login.css">
+   <link rel="stylesheet" href="css/login.css">
 
 </head>
 <body>
@@ -67,7 +64,7 @@ if(isset($_POST['submit'])){
       <input type="email" name="email" required placeholder="enter your email">
       <input type="password" name="password" required placeholder="enter your password">
       <input type="submit" name="submit" value="login now" class="form-btn">
-      <p>don't have an account? <a href="register_form.php">register now</a></p>
+      <p>don't have an account? <a href="register.php">register now</a></p>
    </form>
 
 </div>

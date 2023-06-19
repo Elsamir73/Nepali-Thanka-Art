@@ -1,6 +1,6 @@
 <?php
 
-@include 'config.php';
+@include '../includes/config.php';
 
 if(isset($_POST['add_product'])){
 
@@ -8,7 +8,7 @@ if(isset($_POST['add_product'])){
    $product_price = $_POST['product_price'];
    $product_image = $_FILES['product_image']['name'];
    $product_image_tmp_name = $_FILES['product_image']['tmp_name'];
-   $product_image_folder = 'uploaded_img/'.$product_image;
+   $product_image_folder = '../uploaded_img/'.$product_image;
 
    if(empty($product_name) || empty($product_price) || empty($product_image)){
       $message[] = 'please fill out all';
@@ -27,7 +27,7 @@ if(isset($_POST['add_product'])){
 if(isset($_GET['delete'])){
     $id = $_GET['delete'];
     mysqli_query($conn, "DELETE FROM prod WHERE id = $id");
-    header('location:admin_page.php');
+    header('location:home.php');
 };
 
 ?>
@@ -43,7 +43,7 @@ if(isset($_GET['delete'])){
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <link rel="stylesheet" href="assests/css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
 
 </head>
 <body>
@@ -93,12 +93,12 @@ if(isset($message)){
             ?>
            
         <tr>
-            <td><img src="uploaded_img/<?php echo $row['image'];?>" height="100" alt=""></td>
+            <td><img src="../uploaded_img/<?php echo $row['image'];?>" height="100" alt=""></td>
             <td><?php echo $row['name'];?></td>
             <td><?php echo $row['price'];?>/-</td>
             <td>
-                <a href="admin_update.php?edit=<?php echo $row['id'];?>" class="btn"><i class="fas fa-edit"></i> edit </a>
-                <a href="admin_page.php?delete=<?php echo $row['id'];?>" class="btn"><i class="fas fa-trash"></i> delete </a>
+                <a href="update.php?edit=<?php echo $row['id'];?>" class="btn"><i class="fas fa-edit"></i> edit </a>
+                <a href="home.php?delete=<?php echo $row['id'];?>" class="btn"><i class="fas fa-trash"></i> delete </a>
             </td>
         </tr>
 

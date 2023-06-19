@@ -1,6 +1,6 @@
 <?php
 
-@include 'config.php';
+@include 'includes/config.php';
 
 if(isset($_POST['submit'])){
 
@@ -25,7 +25,7 @@ if(isset($_POST['submit'])){
       }else{
          $insert = "INSERT INTO user_form(name, email, password, user_type) VALUES('$name','$email','$pass','$user_type')";
          mysqli_query($conn, $insert);
-         header('location:login_form.php');
+         header('location:login.php');
       }
    }
 
@@ -43,7 +43,7 @@ if(isset($_POST['submit'])){
    <title>register form</title>
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="registration.css">
+   <link rel="stylesheet" href="css/registration.css">
 
 </head>
 <body>
@@ -68,7 +68,7 @@ if(isset($_POST['submit'])){
          <option value="admin">admin</option>
       </select>
       <input type="submit" name="submit" value="register now" class="form-btn">
-      <p>already have an account? <a href="login_form.php">login now</a></p>
+      <p>already have an account? <a href="login.php">login now</a></p>
    </form>
 
 </div>

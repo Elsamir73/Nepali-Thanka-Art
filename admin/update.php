@@ -1,6 +1,6 @@
 <?php
 
-@include 'config.php';
+@include '../includes/config.php';
 
 $id = $_GET['edit'];
 
@@ -10,7 +10,7 @@ if(isset($_POST['update_product'])){
    $product_price = $_POST['product_price'];
    $product_image = $_FILES['product_image']['name'];
    $product_image_tmp_name = $_FILES['product_image']['tmp_name'];
-   $product_image_folder = 'uploaded_img/'.$product_image;
+   $product_image_folder = '../uploaded_img/'.$product_image;
 
    if(empty($product_name) || empty($product_price) || empty($product_image)){
       $message[] = 'please fill out all';
@@ -29,7 +29,7 @@ if(isset($_POST['update_product'])){
 if(isset($_GET['delete'])){
     $id = $_GET['delete'];
     mysqli_query($conn, "DELETE FROM prod WHERE id = $id");
-    header('location:admin_page.php');
+    header('location:home.php');
 };
 
 ?>
@@ -46,7 +46,7 @@ if(isset($_GET['delete'])){
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-  <link rel="stylesheet" href="assests/css/style.css">
+  <link rel="stylesheet" href="css/adminup.css">
 </head>
 <body>
 
@@ -77,7 +77,7 @@ if(isset($message)){
            <input type="number" placeholder="enter product price" value="<?php $row['price']; ?>" name="product_price" class="box">
            <input type="file" accept="image/png, image/jpeg, image/jpg" name="product_image" class="box">
            <input type="submit" class="btn" name="update_product" value="update product">
-           <a href="admin_page.php" class="btm">go back</a>
+           <a href="home.php" class="btm">go back</a>
          </form>
         
          <?php };?>
