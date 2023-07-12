@@ -1,115 +1,119 @@
 <?php
 
-@include '../includes/config.php';
+include '../includes/config.php';
 
-if(isset($_POST['add_product'])){
+session_start();
 
-   $product_name = $_POST['product_name'];
-   $product_price = $_POST['product_price'];
-   $product_image = $_FILES['product_image']['name'];
-   $product_image_tmp_name = $_FILES['product_image']['tmp_name'];
-   $product_image_folder = '../uploaded_img/'.$product_image;
+if(!isset($_SESSION['admin_name'])){
+   header('location:../login.php');
+}
 
-   if(empty($product_name) || empty($product_price) || empty($product_image)){
-      $message[] = 'please fill out all';
-   }else{
-    $insert = "INSERT INTO prod(name, price, image) VALUES('$product_name', '$product_price','$product_image')";
-    $upload = mysqli_query($conn,$insert);
-    if($upload){
-        move_uploaded_file($product_image_tmp_name, $product_image_folder);
-        $message[] = 'new product added successfully';
-    }else{
-        $message[]= 'could not add the product';
-    }
-   }
-};
-
-if(isset($_GET['delete'])){
-    $id = $_GET['delete'];
-    mysqli_query($conn, "DELETE FROM prod WHERE id = $id");
-    header('location:home.php');
-};
+// echo $_SESSION['admin_name'];
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Admin panel</title>
 
-    <link rel="stylesheet" href="css/admin.css">
-
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <?php include 'admin_header.php'; ?>
+    <section class="dashboard">
 
-<?php
+   <h1 class="title">dashboard</h1>
 
-if(isset($message)){
-    foreach($message as $message){
-        echo '<span class="message">'.$message.'</span>';
-    }
-}
-?>
+   <div class="box-container">
 
-    <div class="container">
+      <div class="box">
+         <?php
+            $total_pendings = 0;
+            $select_pendings = mysqli_query($conn, "SELECT * FROM `orders` WHERE payment_status = 'pending'") or die('query failed');
+            while($fetch_pendings = mysqli_fetch_assoc($select_pendings)){
+               $total_pendings += $fetch_pendings['total_price'];
+            };
+         ?> 
+         <h3>$<?php echo $total_pendings; ?>/-</h3>
+         <p>total pendings</p>
+      </div>
 
-        <div class="admin-product-form-container">
+      <div class="box">
+         <?php
+            $total_completes = 0;
+            $select_completes = mysqli_query($conn, "SELECT * FROM `orders` WHERE payment_status = 'completed'") or die('query failed');
+            while($fetch_completes = mysqli_fetch_assoc($select_completes)){
+               $total_completes += $fetch_completes['total_price'];
+            };
+         ?>
+         <h3>$<?php echo $total_completes; ?>/-</h3>
+         <p>completed paymets</p>
+      </div>
 
-            <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
-            <h3>add new product</h3>
-         <input type="text" placeholder="enter product name" name="product_name" class="box">
-         <input type="number" placeholder="enter product price" name="product_price" class="box">
-         <input type="file" accept="image/png, image/jpeg, image/jpg" name="product_image" class="box">
-         <input type="submit" class="btn" name="add_product" value="add product">
-            </form>
-        </div>
+      <div class="box">
+         <?php
+            $select_orders = mysqli_query($conn, "SELECT * FROM `orders`") or die('query failed');
+            $number_of_orders = mysqli_num_rows($select_orders);
+         ?>
+         <h3><?php echo $number_of_orders; ?></h3>
+         <p>orders placed</p>
+      </div>
 
-    <?php
-      $select = mysqli_query($conn, "SELECT * FROM prod");
-   
-   ?>
+      <div class="box">
+         <?php
+            $select_products = mysqli_query($conn, "SELECT * FROM `prod`") or die('query failed');
+            $number_of_products = mysqli_num_rows($select_products);
+         ?>
+         <h3><?php echo $number_of_products; ?></h3>
+         <p>products added</p>
+      </div>
 
-<div class="product-display">
-     <table class = "product-display-table">
+      <div class="box">
+         <?php
+            $select_users = mysqli_query($conn, "SELECT * FROM `user_form` WHERE user_type = 'user'") or die('query failed');
+            $number_of_users = mysqli_num_rows($select_users);
+         ?>
+         <h3><?php echo $number_of_users; ?></h3>
+         <p>normal users</p>
+      </div>
 
-    <thead>
-        <tr>
-            <th>product image</th>
-            <th>product name</th>
-            <th>product price</th>
-            <th colspan="2">action</th>
-        <tr>
-    </thead>
+      <div class="box">
+         <?php
+            $select_admin = mysqli_query($conn, "SELECT * FROM `user_form` WHERE user_type = 'admin'") or die('query failed');
+            $number_of_admin = mysqli_num_rows($select_admin);
+         ?>
+         <h3><?php echo $number_of_admin; ?></h3>
+         <p>admin users</p>
+      </div>
 
-      <?php
-         while($row = mysqli_fetch_assoc($select)){
-            
-            ?>
-           
-        <tr>
-            <td><img src="../uploaded_img/<?php echo $row['image'];?>" height="100" alt=""></td>
-            <td><?php echo $row['name'];?></td>
-            <td><?php echo $row['price'];?>/-</td>
-            <td>
-                <a href="update.php?edit=<?php echo $row['id'];?>" class="btn"><i class="fas fa-edit"></i> edit </a>
-                <a href="home.php?delete=<?php echo $row['id'];?>" class="btn"><i class="fas fa-trash"></i> delete </a>
-            </td>
-        </tr>
+      <div class="box">
+         <?php
+            $select_account = mysqli_query($conn, "SELECT * FROM `user_form`") or die('query failed');
+            $number_of_account = mysqli_num_rows($select_account);
+         ?>
+         <h3><?php echo $number_of_account; ?></h3>
+         <p>total accounts</p>
+      </div>
 
-       <?php };?> 
-      
+      <div class="box">
+         <?php
+            $select_messages = mysqli_query($conn, "SELECT * FROM `message`") or die('query failed');
+            $number_of_messages = mysqli_num_rows($select_messages);
+         ?>
+         <h3><?php echo $number_of_messages; ?></h3>
+         <p>new messages</p>
+      </div>
 
-     </table>
+   </div>
 
-</div>
+</section>
 
- </div>
 
+
+
+<script src="js/admin_script.js"></script>
 </body>
 </html>

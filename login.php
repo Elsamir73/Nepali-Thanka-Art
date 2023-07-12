@@ -25,7 +25,7 @@ if(isset($_POST['submit'])){
       }elseif($row['user_type'] == 'user'){
 
          $_SESSION['user_name'] = $row['name'];
-         header('location:user_page.php');
+         header('location:user/dashboard.php');
 
       }
      
@@ -44,7 +44,6 @@ if(isset($_POST['submit'])){
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>login form</title>
 
-   <!-- custom css file link  -->
    <link rel="stylesheet" href="css/login.css">
 
 </head>

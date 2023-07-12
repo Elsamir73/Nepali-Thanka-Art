@@ -26,7 +26,7 @@
  
  .form-container form input,
  .form-container form select{
-    width: 100%;
+    width: 63%;
     padding:10px 15px;
     font-size: 17px;
     margin:8px 0;
@@ -39,6 +39,7 @@
  }
  
  .form-container form .form-btn{
+   width: 40%;
     background: #fbd0d9;
     color:crimson;
     text-transform: capitalize;
