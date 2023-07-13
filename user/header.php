@@ -10,12 +10,12 @@
 
    <div class="header">
 
-      <a href="dashboard.php" class="logo">Nepali Thanka Art.</a>
+      <a href="view.php" class="logo">Nepali Thanka Art.</a>
 
       <nav class="navbar">
          <ul>
-            <li><a href="dashboard.php">home</a></li>
-            <li><a href="#">pages</a>
+            <li><a href="view.php">home</a></li>
+            <li><a href="#">pages +</a>
                <ul>
                   <li><a href="about.php">about</a></li>
                   <li><a href="contact.php">contact</a></li>

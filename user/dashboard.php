@@ -18,10 +18,10 @@ echo $_SESSION['user_name'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home</title>
 
-    <link rel="stylesheet" href="./css/user.css">
+    <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
-  <?php @include 'header.php'; ?>
+  <?php include 'header.php'; ?>
 <div class="container">
 
 <div class="content">
@@ -35,5 +35,7 @@ echo $_SESSION['user_name'];
 
 </div>
 <?php @include 'footer.php'; ?>
+
+<script.src="js/script.js"></script>
 </body>
 </html>

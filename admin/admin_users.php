@@ -10,7 +10,7 @@ if(!isset($_SESSION['admin_name'])){
 
 if(isset($_GET['delete'])){
    $delete_id = $_GET['delete'];
-   mysqli_query($conn, "DELETE FROM `users` WHERE id = '$delete_id'") or die('query failed');
+   mysqli_query($conn, "DELETE FROM `user_form` WHERE id = '$delete_id'") or die('query failed');
    header('location:admin_users.php');
 }
 
@@ -37,7 +37,7 @@ if(isset($_GET['delete'])){
 
    <div class="box-container">
       <?php
-         $select_users = mysqli_query($conn, "SELECT * FROM `users`") or die('query failed');
+         $select_users = mysqli_query($conn, "SELECT * FROM `user_form`") or die('query failed');
          if(mysqli_num_rows($select_users) > 0){
             while($fetch_users = mysqli_fetch_assoc($select_users)){
       ?>

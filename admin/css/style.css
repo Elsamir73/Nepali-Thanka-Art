@@ -161,8 +161,9 @@ section{
 
 .header .flex .account-box{
    position: absolute;
-   top:120%; right:2rem;
-   width: 33rem;
+   top:10%; right:2rem; 
+   height: 22vh;
+   width: 22rem;
    border-radius: .5rem;
    box-shadow: var(--box-shadow);
    background-color: var(--white);
@@ -178,7 +179,7 @@ section{
 
 .header .flex .account-box p{
    padding-bottom: 1rem;
-   font-size: 2rem;
+   font-size: 1.5rem;
    color:var(--light-color);
    line-height: 1.5;
 }
@@ -187,20 +188,15 @@ section{
    color:var(--pink);
 }
 
-.header .flex .account-box div{
-   font-size: 2rem;
-   margin-top: 2rem;
-   color:var(--light-color);
+.header .flex .account-box a .delete-btn{
+   padding-bottom: 1rem;
+   font-size: 1.5rem;
+   color:var(--white);
+   background-color: var(--red);
+   text-align: center;
+   line-height: .5;
+  
 }
-
-.header .flex .account-box div a{
-   color:var(--orange);
-}
-
-.header .flex .account-box div a:hover{
-   text-decoration: underline;
-}
-
 .header .flex .icons div{
    font-size: 2.5rem;
    margin-left: 1.7rem;
@@ -233,8 +229,12 @@ section{
  }
 
 #menu-btn{
-    display: none;
+    display: flex;
  }
+
+#user-btn{
+   display: flex;
+} 
 
 .dashboard .box-container{
    display: grid;
