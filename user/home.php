@@ -6,7 +6,7 @@ session_start();
 
 if(!isset($_SESSION['user_name'])){
    header('location:../login.php');
-}
+};
 
 
 if(isset($_POST['add_to_cart'])){
@@ -42,34 +42,33 @@ if(isset($_POST['add_to_cart'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>search page</title>
+    <title>Document</title>
 
-    <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <?php @include 'header.php'; ?>
+    
+<?php include 'header.php';?>
 
 
-  <section class="heading">
-    <h3>search page</h3>
-    <p> <a href="home.php">home</a> / search </p>
+<section class="home">
+
+   <div class="content">
+      <h3>new collections</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime reiciendis, modi placeat sit cumque molestiae.</p>
+      <a href="about.php" class="btn">discover more</a>
+   </div>
+
 </section>
 
-<section class="search-form">
-    <form action="" method="POST">
-        <input type="text" class="box" placeholder="search products..." name="search_box">
-        <input type="submit" class="btn" value="search" name="search_btn">
-    </form>
-</section>
+<section class="products">
 
-<section class="products" style="padding-top: 0;">
+   <h1 class="title">latest products</h1>
 
    <div class="box-container">
 
       <?php
-        if(isset($_POST['search_btn'])){
-         $search_box = mysqli_real_escape_string($conn, $_POST['search_box']);
-         $select_products = mysqli_query($conn, "SELECT * FROM `products` WHERE name LIKE '%{$search_box}%'") or die('query failed');
+         $select_products = mysqli_query($conn, "SELECT * FROM `products` LIMIT 6") or die('query failed');
          if(mysqli_num_rows($select_products) > 0){
             while($fetch_products = mysqli_fetch_assoc($select_products)){
       ?>
@@ -88,22 +87,41 @@ if(isset($_POST['add_to_cart'])){
       </form>
       <?php
          }
-            }else{
-                echo '<p class="empty">no result found!</p>';
-            }
-        }else{
-            echo '<p class="empty">search something!</p>';
-        }
+      }else{
+         echo '<p class="empty">no products added yet!</p>';
+      }
       ?>
 
+   </div>
+
+   <div class="more-btn">
+      <a href="shop.php" class="option-btn">load more</a>
+   </div>
+
+</section>
+
+<section class="home-contact">
+
+   <div class="content">
+      <h3>have any questions?</h3>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio officia aliquam quis saepe? Quia, libero.</p>
+      <a href="contact.php" class="btn">contact us</a>
    </div>
 
 </section>
 
 
 
-  <?php @include .'footer.php';?>
 
-  <script.src="js/script.js"></script>
+
+
+
+
+
+
+<?php include 'footer.php';?>
+
+<script src="js/script.js"></script>
+
 </body>
-</html>  
+</html>
