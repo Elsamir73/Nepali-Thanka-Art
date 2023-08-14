@@ -4,7 +4,7 @@
 
 session_start();
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
 
    $email = mysqli_real_escape_string($conn, $_POST['email']);
    $pass = md5($_POST['password']);
@@ -13,31 +13,30 @@ if(isset($_POST['submit'])){
 
    $result = mysqli_query($conn, $select);
 
-   if(mysqli_num_rows($result) > 0){
+   if (mysqli_num_rows($result) > 0) {
 
       $row = mysqli_fetch_array($result);
 
-      if($row['user_type'] == 'admin'){
+      if ($row['user_type'] == 'admin') {
 
          $_SESSION['admin_name'] = $row['name'];
          header('location:admin/home.php');
-
-      }elseif($row['user_type'] == 'user'){
+      } elseif ($row['user_type'] == 'user') {
 
          $_SESSION['user_name'] = $row['name'];
+         $_SESSION['user_email'] = $row['email'];
+         $_SESSION['user_id']    = $row['id'];
          header('location:user/home.php');
-
       }
-     
-   }else{
+   } else {
       $error[] = 'incorrect email or password!';
    }
-
 };
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,26 +46,28 @@ if(isset($_POST['submit'])){
    <link rel="stylesheet" href="css/login.css">
 
 </head>
+
 <body>
-   
-<div class="form-container">
 
-   <form action="" method="post">
-      <h3>login now</h3>
-      <?php
-      if(isset($error)){
-         foreach($error as $error){
-            echo '<span class="error-msg">'.$error.'</span>';
+   <div class="form-container">
+
+      <form action="" method="post">
+         <h3>login now</h3>
+         <?php
+         if (isset($error)) {
+            foreach ($error as $error) {
+               echo '<span class="error-msg">' . $error . '</span>';
+            };
          };
-      };
-      ?>
-      <input type="email" name="email" required placeholder="enter your email">
-      <input type="password" name="password" required placeholder="enter your password">
-      <input type="submit" name="submit" value="login now" class="form-btn">
-      <p>don't have an account? <a href="register.php">register now</a></p>
-   </form>
+         ?>
+         <input type="email" name="email" required placeholder="enter your email">
+         <input type="password" name="password" required placeholder="enter your password">
+         <input type="submit" name="submit" value="login now" class="form-btn">
+         <p>don't have an account? <a href="register.php">register now</a></p>
+      </form>
 
-</div>
+   </div>
 
 </body>
+
 </html>

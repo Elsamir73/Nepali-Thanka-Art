@@ -115,6 +115,5 @@ if(!isset($_SESSION['admin_name'])){
 
 
 
-<script src="js/admin_script.js"></script>
 </body>
 </html>

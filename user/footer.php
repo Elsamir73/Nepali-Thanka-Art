@@ -12,16 +12,16 @@
 
         <div class="box">
             <h3>extra links</h3>
-            <a href="login.php">login</a>
-            <a href="register.php">register</a>
+            <!-- <a href="login.php">login</a>
+            <a href="register.php">register</a> -->
             <a href="orders.php">my orders</a>
             <a href="cart.php">my cart</a>
         </div>
 
         <div class="box">
             <h3>contact info</h3>
-            <p> <i class="fas fa-phone"></i>  +977 98989898  </p>
-            <p> <i class="fas fa-phone"></i> +977 98989898 </p>
+            <p> <i class="fas fa-phone"></i> +977 9818589628 </p>
+            <p> <i class="fas fa-phone"></i> +977 9861366336 </p>
             <p> <i class="fas fa-envelope"></i> samir@gmail.com </p>
             <p> <i class="fas fa-map-marker-alt"></i> swayambhu </p>
         </div>
@@ -35,6 +35,6 @@
 
     </div>
 
-    <div class="credit">&copy; copyright @ <?php echo date('Y'); ?> by <span>Nepali Thnaka Art</span> </div>
+    <div class="credit">&copy; copyright @ <?php echo date('Y'); ?> by <span>Nepali Thanka Art</span> </div>
 
 </section>
