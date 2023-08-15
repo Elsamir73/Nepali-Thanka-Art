@@ -70,7 +70,6 @@ if (isset($_GET['delete'])) {
 
             $select = mysqli_query($conn, "SELECT * FROM prod WHERE id = $id");
             while ($row = mysqli_fetch_assoc($select)) {
-                print_r($row);
 
             ?>
 

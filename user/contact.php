@@ -1,6 +1,6 @@
 <?php
 
-@include 'config.php';
+@include '../includes/config.php';
 
 session_start();
 
@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_name'])) {
 };
 
 if (isset($_POST['send'])) {
-
+    $user_id = $_SESSION['user_id'];
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $number = mysqli_real_escape_string($conn, $_POST['number']);
