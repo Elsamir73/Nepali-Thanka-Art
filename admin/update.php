@@ -8,14 +8,15 @@ if (isset($_POST['update_product'])) {
 
     $product_name = $_POST['product_name'];
     $product_price = $_POST['product_price'];
+    $details = $_POST['details'];
     $product_image = $_FILES['product_image']['name'];
     $product_image_tmp_name = $_FILES['product_image']['tmp_name'];
     $product_image_folder = '../uploaded_img/' . $product_image;
 
-    if (empty($product_name) || empty($product_price) || empty($product_image)) {
+    if (empty($product_name) || empty($product_price) || empty($product_image) || empty($details)) {
         $message[] = 'please fill out all';
     } else {
-        $update = "UPDATE prod SET name= '$product_name', price= '$product_price', image= '$product_image'
+        $update = "UPDATE prod SET name= '$product_name', price= '$product_price', image= '$product_image', details= '$details'
     WHERE id =$id";
         $upload = mysqli_query($conn, $update);
         if ($upload) {
@@ -50,7 +51,7 @@ if (isset($_GET['delete'])) {
     <link rel="stylesheet" href="css/adminup.css">
 </head>
 
-<body>
+<body class="admin_body">
 
     <?php
 

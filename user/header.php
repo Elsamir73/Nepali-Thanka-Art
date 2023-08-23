@@ -18,20 +18,22 @@ if (isset($error)) {
       <nav class="navbar">
          <ul>
             <li><a href="home.php">home</a></li>
-            <li><a href="#">pages +</a>
-               <ul>
-                  <li><a href="about.php">about</a></li>
-                  <li><a href="contact.php">contact</a></li>
-               </ul>
-            </li>
+            <!-- <li><a href="#">pages +</a>
+               <ul> -->
+            <li><a href="about.php">about</a></li>
+            <li><a href="contact.php">contact</a></li>
+            <!-- </ul>
+            </li> -->
             <li><a href="shop.php">shop</a></li>
             <li><a href="orders.php">orders</a></li>
-            <li><a href="#">account +</a>
+            <li><a href="details.php">details</a></li>
+
+            <!-- <li><a href="#">account +</a>
                <ul>
                   <li><a href="../login.php">login</a></li>
                   <li><a href="../register.php">register</a></li>
                </ul>
-            </li>
+            </li> -->
          </ul>
       </nav>
 

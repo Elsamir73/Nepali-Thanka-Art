@@ -4,6 +4,14 @@
 
 session_start();
 
+if (isset($_SESSION['admin_name'])) {
+   header("Location: admin/home.php");
+}
+
+if (isset($_SESSION['user_name'])) {
+   header("Location: user/home.php");
+}
+
 if (isset($_POST['submit'])) {
 
    $email = mysqli_real_escape_string($conn, $_POST['email']);

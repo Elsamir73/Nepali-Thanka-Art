@@ -2,6 +2,11 @@
 
 @include '../includes/config.php';
 
+session_start();
+if (!isset($_SESSION['admin_name'])) {
+    header('location:../login.php');
+}
+
 if (isset($_POST['add_product'])) {
 
     $product_name = $_POST['product_name'];
@@ -45,11 +50,12 @@ if (isset($_GET['delete'])) {
     <title>Document</title>
 
     <link rel="stylesheet" href="css/adminup.css">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
-<body>
-
+<body class="admin_body">
+    <?php @include 'admin_header.php'; ?>
     <?php
 
     if (isset($message)) {
@@ -59,7 +65,7 @@ if (isset($_GET['delete'])) {
     }
     ?>
 
-    <a href="../logout.php" class="logout-button">logout</a>
+    <!-- <a href="../logout.php" class="logout-button">logout</a> -->
     <div class="container">
 
         <div class="admin-product-form-container">

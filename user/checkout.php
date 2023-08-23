@@ -14,7 +14,7 @@ if (isset($_POST['order'])) {
     $number = mysqli_real_escape_string($conn, $_POST['number']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $method = mysqli_real_escape_string($conn, $_POST['method']);
-    $address = mysqli_real_escape_string($conn, 'flat no. ' . $_POST['flat'] . ', ' . $_POST['street'] . ', ' . $_POST['city'] . ', ' . $_POST['country'] . ' - ' . $_POST['pin_code']);
+    $address = mysqli_real_escape_string($conn, 'flat no. ' . $_POST['flat'] . ', ' . $_POST['city'] . ', ' . $_POST['country'] . ' - ');
     $placed_on = date('d-M-Y');
 
     $cart_total = 0;
@@ -52,7 +52,7 @@ if (isset($_POST['order'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Order</title>
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -109,19 +109,18 @@ if (isset($_POST['order'])) {
                     <span>payment method :</span>
                     <select name="method">
                         <option value="cash on delivery">cash on delivery</option>
-                        <option value="credit card">credit card</option>
-                        <option value="paypal">paypal</option>
-                        <option value="paytm">paytm</option>
+                        <option value="esewa">paypal</option>
+                        <option value="khalti">khalti</option>
                     </select>
                 </div>
                 <div class="inputBox">
-                    <span>address line 01 :</span>
-                    <input type="text" name="flat" placeholder="e.g. flat no.">
+                    <span>address:</span>
+                    <input type="text" name="flat" placeholder="e.g.tol/basti">
                 </div>
-                <div class="inputBox">
+                <!-- <div class="inputBox">
                     <span>address line 02 :</span>
                     <input type="text" name="street" placeholder="e.g.  streen name">
-                </div>
+                </div> -->
                 <div class="inputBox">
                     <span>city :</span>
                     <input type="text" name="city" placeholder="e.g. kathmandu">
@@ -134,10 +133,10 @@ if (isset($_POST['order'])) {
                     <span>country :</span>
                     <input type="text" name="country" placeholder="e.g. nepal">
                 </div>
-                <div class="inputBox">
+                <!-- <div class="inputBox">
                     <span>pin code :</span>
                     <input type="number" min="0" name="pin_code" placeholder="e.g. 123456">
-                </div>
+                </div> -->
             </div>
 
             <input type="submit" name="order" value="order now" class="btn">

@@ -40,7 +40,7 @@ if (!isset($_SESSION['user_name'])) {
 
             <div class="content">
                 <h3>why choose us?</h3>
-                <p>Nepali Thanka Art Provide You The Best Primitive And Modern Thanka At Best Prices.</p>
+                <p>We take special request form our clients. We are art experts; however we have a real interest in it and are learning more every day. We describe the thanka painting as best we can. In all cases we give you as much information about a scroll as we have</p>
                 <a href="shop.php" class="btn">shop now</a>
             </div>
 
@@ -50,7 +50,7 @@ if (!isset($_SESSION['user_name'])) {
 
             <div class="content">
                 <h3>what we provide?</h3>
-                <p>NTA Provides the Old And Valuable Thanka. We delivered the thanka to your home safely.</p>
+                <p>we produces a large variety of thangkas form small one to large one.We show close-ups of every thangka painting so you can see the high quality of our thangka paintings. You can feel our thanka when you see it. We accept custom orders for any image for which you can provide a description or photograph.</p>
                 <a href="contact.php" class="btn">contact us</a>
             </div>
 
@@ -66,16 +66,16 @@ if (!isset($_SESSION['user_name'])) {
                 <img src="images/about-img-3.jpg" alt="">
             </div>
 
-            <!-- <div class="content">
+            <div class="content">
                 <h3>who we are?</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum odit voluptatum alias sed est in magni nihil nisi deleniti nostrum.</p>
-                <a href="#reviews" class="btn">clients reviews</a>
-            </div> -->
+                <p>Nepali Thanka Art Center is thanka art work shop for all kinds of thankas painting like Tibetan Thangka, Newari Thanka, and Japanese Thanka paintings. This site is own by one of the most reputed thangka painting producers in Nepal i.e. Nepali Thanka Art Center. Our online Thanka art gallery offers a selective collection of original thangka paintings..</p>
+                <!-- <a href="#reviews" class="btn">clients reviews</a> -->
+            </div>
 
         </div>
 
     </section>
-
+    <!-- 
     <section class="reviews" id="reviews">
 
         <h1 class="title">client's reviews</h1>
@@ -119,9 +119,9 @@ if (!isset($_SESSION['user_name'])) {
                     <i class="fas fa-star-half-alt"></i>
                 </div>
                 <h3>john deo</h3>
-            </div>
+            </div>  -->
 
-            <!-- <div class="box">
+    <!-- <div class="box">
                 <img src="images/pic-4.png" alt="">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia animi consequatur nostrum cumque itaque ducimus, iure expedita voluptates. Minima, minus.</p>
                 <div class="stars">
@@ -160,7 +160,7 @@ if (!isset($_SESSION['user_name'])) {
                 <h3>john deo</h3>
             </div> -->
 
-        </div>
+    </div>
 
     </section>
 

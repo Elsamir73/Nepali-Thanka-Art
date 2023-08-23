@@ -47,17 +47,20 @@ if (isset($_POST['send'])) {
     </section>
 
 
-    <section class="contact">
 
-        <form action="" method="POST">
-            <h3>contact us</h3>
-            <input type="text" name="name" placeholder="enter your name" class="box" required>
-            <input type="email" name="email" placeholder="enter your email" class="box" required>
-            <input type="number" name="number" placeholder="enter your number" class="box" required>
-            <textarea name="message" class="box" placeholder="enter your message" required cols="30" rows="10"></textarea>
-            <input type="submit" value="send message" name="send" class="btn">
-        </form>
-
+    <!-- Form -->
+    <section id="form" class="">
+        <div class="inner-width">
+            <h1 class="section-title">Leave a Message</h1>
+            <form action="https://formsubmit.co/shuzhal777@gmail.com" class="contact-form" method="post">
+                <input type="text" id="name" name="name" class="nameZone" placeholder="Your Full Name" />
+                <input type="email" id="email" name="email" class="emailZone" placeholder="Your Email *" required />
+                <input type="text" id="subject" name="subject" class="subjectZone" placeholder="Subject *" required />
+                <textarea class="messageZone" id="message" name="message" placeholder="Message *" required></textarea>
+                <input type="submit" value="Send Message" class="btn" />
+                <input type="hidden" name="_next" value="http://localhost/Nepali-Thanka-Art/home.php" />
+            </form>
+        </div>
     </section>
 
     <?php include 'footer.php'; ?>

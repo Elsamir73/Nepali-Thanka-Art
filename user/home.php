@@ -18,7 +18,7 @@ if (isset($_POST['add_to_cart'])) {
    $product_quantity = $_POST['product_quantity'];
    $user_id = $_SESSION["user_id"];
 
-   print_r($_SESSION);
+
 
    $check_cart_numbers = mysqli_query($conn, "SELECT * FROM `cart` WHERE name = '$product_name' AND user_id = '$user_id'") or die('query failed');
 
@@ -39,7 +39,7 @@ if (isset($_POST['add_to_cart'])) {
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
+   <title>NTA</title>
 
    <link rel="stylesheet" href="css/style.css">
 </head>
@@ -52,8 +52,8 @@ if (isset($_POST['add_to_cart'])) {
    <section class="home">
 
       <div class="content">
-         <h3>new collections</h3>
-         <p>All Of The Thanka Paints Are Available Here.</p>
+         <h3>Exploring Primitive Side Of Thanka </h3>
+         <p>Each thanka is created using traditional methods and strictly adhering to the proportions of deities as they are laid down in Buddhist scripture</p>
          <a href="about.php" class="btn">discover more</a>
       </div>
 
@@ -61,7 +61,7 @@ if (isset($_POST['add_to_cart'])) {
 
    <section class="products">
 
-      <h1 class="title">latest products</h1>
+      <h1 class="title">Latest Items</h1>
 
       <div class="box-container">
 
@@ -91,34 +91,27 @@ if (isset($_POST['add_to_cart'])) {
          <?php
             }
          } else {
-            echo '<p class="empty">no products added yet!</p>';
+            echo '<p class="empty">no items added yet!</p>';
          }
          ?>
 
       </div>
 
-      <div class="more-btn">
-         <a href="shop.php" class="option-btn">load more</a>
-      </div>
+      <!-- <div class="more-btn">
+         <a href="shop.php" class="option-btn">More Products</a>
+      </div> -->
 
    </section>
 
    <section class="home-contact">
 
       <div class="content">
-         <h3>have any questions?</h3>
-         <p>If You Have Any Problem, Please Contact Us.</p>
+         <h3>have any problems?</h3>
+         <!-- <p>Contact Us.</p> -->
          <a href="contact.php" class="btn">contact us</a>
       </div>
 
    </section>
-
-
-
-
-
-
-
 
 
 

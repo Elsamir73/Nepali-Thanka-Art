@@ -34,7 +34,7 @@ if (isset($_POST['update_quantity'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>home</title>
+  <title>cart</title>
 
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -72,25 +72,25 @@ if (isset($_POST['update_quantity'])) {
               <input type="number" min="1" value="<?php echo $fetch_cart['quantity']; ?>" name="cart_quantity" class="qty">
               <input type="submit" value="update" class="option-btn" name="update_quantity">
             </form>
-            <div class="sub-total"> sub-total : <span>$<?php echo $sub_total = ($fetch_cart['price'] * $fetch_cart['quantity']); ?>/-</span> </div>
+            <div class="sub-total"> Total : <span>$<?php echo $sub_total = ($fetch_cart['price'] * $fetch_cart['quantity']); ?>/-</span> </div>
           </div>
       <?php
           $grand_total += $sub_total;
         }
       } else {
-        echo '<p class="empty">your cart is empty</p>';
+        echo '<p class="empty"> Cart is empty</p>';
       }
       ?>
     </div>
 
     <div class="more-btn">
-      <a href="cart.php?delete_all" class="btn <?php echo ($grand_total > 1) ? '' : 'disabled' ?>" onclick="return confirm('delete all from cart?');">delete all</a>
+      <a href="cart.php?delete_all" class="btn <?php echo ($grand_total > 1) ? '' : 'disabled' ?>" onclick="return confirm('delete all from cart?');">Delete all</a>
     </div>
 
     <div class="cart-total">
       <p>grand total : <span>$<?php echo $grand_total; ?>/-</span></p>
-      <a href="shop.php" class="btn">continue shopping</a>
-      <a href="checkout.php" class="btn  <?php echo ($grand_total > 1) ? '' : 'disabled' ?>">proceed to checkout</a>
+      <!-- <a href="shop.php" class="btn">continue shopping</a> -->
+      <a href="checkout.php" class="btn  <?php echo ($grand_total > 1) ? '' : 'disabled' ?>">Procced</a>
     </div>
 
   </section>

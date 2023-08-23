@@ -149,24 +149,27 @@ section {
   left: 0;
   right: 0;
   z-index: 1000;
-  background-color: var(--white);
-  box-shadow: var(--box-shadow);
+  background-color: transparent;
 }
 
 .header .flex {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
+  flex-direction: column;
+  height: 100vh;
+  width: fit-content;
 }
 
 .header .flex .account-box {
   position: absolute;
-  top: 10%;
-  right: 2rem;
+  bottom: 10%;
+  left: 2rem;
   height: 22vh;
   width: 22rem;
   border-radius: 0.5rem;
@@ -177,10 +180,13 @@ section {
   border: var(--border);
   animation: fadeIn 0.2s linear;
   display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .header .flex .account-box.active {
-  display: inline-block;
+  display: flex;
 }
 
 .header .flex .account-box p {
@@ -203,7 +209,13 @@ section {
   line-height: 0.5;
 }
 
-.header .flex .navbar a {
+.admin_body {
+  display: flex;
+  align-items: first baseline;
+  gap: 100px;
+}
+
+/* .header .flex .navbar a {
   margin: 0 1rem;
   font-size: 2rem;
   color: var(--light-color);
@@ -212,11 +224,15 @@ section {
 .header .flex .navbar a:hover {
   text-decoration: underline;
   color: var(--pink);
-}
+} */
 
 .header .flex .logo {
-  font-size: 2.5rem;
-  color: var(--black);
+  text-decoration: none;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .header .flex .logo span {
@@ -234,9 +250,57 @@ section {
   display: flex;
 }
 
+nav {
+  margin-bottom: 32px;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-direction: column;
+}
+
+nav ul li {
+  display: inline;
+  background-color: rgb(191, 186, 186);
+  padding: 10px;
+  width: 150px;
+}
+
+nav ul li a {
+  color: black;
+  font-size: 20px;
+}
+
+nav ul li a.flex {
+  position: relative;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+nav ul li a.dashboard {
+  border-color: #da1254;
+}
+
+nav ul li a.pages {
+  border-color: #34abd7;
+}
+
+nav ul li a.navigation {
+  border-color: #158a53;
+}
+
+nav ul li a.users {
+  border-color: #2cbc12;
+}
+
 .dashboard .box-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
   align-items: flex-start;
   margin: 0 auto;
@@ -274,6 +338,8 @@ section {
   max-width: 1200px;
   margin: 0 auto;
   justify-content: center;
+  width: 100%;
+  margin-top: 20px;
 }
 
 .placed-orders .box-container .box {
@@ -288,6 +354,9 @@ section {
   margin-bottom: 1rem;
   font-size: 2rem;
   color: var(--light-color);
+}
+.empty {
+  color: #2cbc12;
 }
 
 .placed-orders .box-container .box p span {

@@ -30,13 +30,13 @@ if (isset($_GET['delete'])) {
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>dashboard</title>
+   <title>orders</title>
 
    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
-<body>
+<body class="admin_body">
 
    <?php @include 'admin_header.php'; ?>
 
@@ -45,6 +45,7 @@ if (isset($_GET['delete'])) {
       <h1 class="title">placed orders</h1>
       <a class="btn" href="completed_orders.php">completed orders</a>
       <div class="box-container">
+
 
          <?php
 
@@ -76,7 +77,7 @@ if (isset($_GET['delete'])) {
          <?php
             }
          } else {
-            echo '<p class="empty">no orders placed yet!</p>';
+            echo '<p class="empty"><span>no orders placed yet!</span></p>';
          }
          ?>
       </div>
